@@ -1,0 +1,942 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Yiban 的 blog</title>
+  <subtitle>Welcome</subtitle>
+  <link href="https://yiban.ccwu.cc/" rel="alternate" type="text/html"/>
+  <link href="https://yiban.ccwu.cc/atom.xml" rel="self" type="application/atom+xml"/>
+  <id>https://yiban.ccwu.cc/</id>
+  <updated>2026-07-06T07:08:56.080Z</updated>
+  <language>zh_CN</language>
+  <entry>
+    <title>稳定好用机场推荐</title>
+    <link href="https://yiban.ccwu.cc/posts/vpn26-4/vpn26-4/" rel="alternate" type="text/html"/>
+    <id>https://yiban.ccwu.cc/posts/vpn26-4/vpn26-4/</id>
+    <published>2026-04-12T00:00:00.000Z</published>
+    <updated>2026-04-12T00:00:00.000Z</updated>
+    <summary>这是我这几年经个人测试总结的一份机场清单 全部机场都由我自费购买 部分机场含优惠码</summary>
+    <content type="html"><![CDATA[<h1>稳定机场推荐</h1>
+<p>这是我这几年玩网络 经个人测试总结的一份机场清单 部分机场含优惠码</p>
+<h3>常见名词混淆</h3>
+<ul>
+<li>
+<p>VPN（指服务商制作的代理软件，但是除了大厂的稳定性安全性通常很差）</p>
+</li>
+<li>
+<p>机场（指导入到代理软件里的订阅，通常有很多节点服务器，大多比VPN安全性等等方面好）</p>
+</li>
+<li>
+<p>VPS自建节点（最好用IP很纯静，但是贵，需要技术，IP被墙的风险大）</p>
+</li>
+</ul>
+<h3>机场类型介绍 直连/中转/专线</h3>
+<p><strong>1. 直连机场</strong></p>
+<ul>
+<li>带宽一般偏小，高峰期容易断联</li>
+</ul>
+<ul>
+<li>成本很低，稳定性全看运气，跑路风险也极大</li>
+<li>价格一般很便宜</li>
+</ul>
+<p>适合当备用、或者预算不充裕的情况。</p>
+<p><strong>2. 中转机场</strong></p>
+<ul>
+<li>比较看服务商，有的稳定有的差</li>
+</ul>
+<ul>
+<li>一般只适合内地用</li>
+<li>很多是移动入口，电信用户尽量选有电信 / 三网入口的</li>
+<li>校园网环境下，有些 SS 机场可能直接用不了</li>
+</ul>
+<p><strong>3. 专线机场</strong></p>
+<ul>
+<li>性价比高，但是日常轻度使用未必值</li>
+<li>虽然稳，但是贵</li>
+</ul>
+<p>所以预算紧 / 备用用 直连</p>
+<p>性价比 / 日常主力用</p>
+<p>中转 追求稳定 / 不差钱用 专线</p>
+<p><strong>机场其实钱是硬道理 有钱啥都好办 所以你懂得...</strong></p>
+<p><strong>⭐⭐⭐备用机场很重要，经常科学上网的多备几个机场</strong></p>
+<p>便宜机场避雷踩坑点</p>
+<ul>
+<li>
+<p>一开始价格低得离谱，折扣拉满，靠低价冲一波人头，收完钱就跑路。流量再多，不好用也是浪费</p>
+</li>
+<li>
+<p>用月抛直连线路压成本，线路天天换，今天能用明天就没</p>
+</li>
+<li>
+<p>看着线路一大堆，其实入口和落地高度复用，数量只是拿来唬人的</p>
+</li>
+<li>
+<p>中转再转发，很多人挤一台机器，一被打直接全军覆没</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>别一上来就买太长时间，机场什么时候出事，谁都说不准</p>
+</li>
+<li>
+<p>看清倍率，2 倍率就是用 1G 算 2G</p>
+</li>
+<li>
+<p>很多机场是有审计的，别装不知道</p>
+</li>
+<li>
+<p>延迟低 ≠ 速度快，这俩不是一回事</p>
+</li>
+<li>
+<p>机场最终都是会跑路的，入手了就要有心理准备，一般新注册的用户优惠会高点</p>
+</li>
+<li>
+<p>机场注册不要使用国内邮箱，Gmail, Outlook邮箱都行，优先推荐Gmail</p>
+</li>
+</ul>
+<h3>客户端</h3>
+<p>很多梯子是给你订阅地址的 你需要导入到客户端里 基本上机场购买后都有详细的订阅教程 少部分是软件但是都不推荐购买</p>
+<blockquote>
+<p>Windows：Clash Verge Rev ( 推荐 ) / Clash Party / FLClash / Hiddify / v2rayN</p>
+<p>macOS：Clash Party / Clash Verge Rev ( 推荐 )/ ClashX Pro / FLClash / Hiddify / Surge</p>
+<p>iOS：Hiddify / Clash Mi / Karing / Shadowrocket ( 推荐 )/ Quantumult X / Stash / Loon / Surge</p>
+<p>Android：Clash Meta for Android ( 推荐 )/ FLClash / Hiddify / Surfboard / v2rayNG</p>
+<p>Linux：Shell Clash / Mihomo Party / Clash Verge Rev ( 推荐 )/ FLClash&lt;br&gt;</p>
+<p>路由器：OpenWRT ( 推荐 ) / PassWall</p>
+</blockquote>
+<h2>📑 目录</h2>
+<ol>
+<li><a href="#%E9%A3%9E%E7%8C%AA%E4%BA%91">飞猪云</a></li>
+<li><a href="#mitce">mitce</a></li>
+<li><a href="#%E8%82%A5%E7%8C%AB%E4%BA%91">肥猫云</a></li>
+<li><a href="#%E7%BA%A2%E6%9D%8F%E4%BA%91">红杏云</a></li>
+<li><a href="#%E5%A4%A7%E7%B1%B3">大米</a></li>
+<li><a href="#%E7%96%BE%E9%A3%8E%E4%BA%91">疾风云</a></li>
+<li><a href="#%E8%93%9D%E5%B8%86%E4%BA%91">蓝帆云</a></li>
+<li><a href="#%E8%B5%94%E9%92%B1">赔钱</a></li>
+</ol>
+<hr />
+<h2>飞猪云</h2>
+<h3>🔹 基本信息</h3>
+<ul>
+<li><strong>服务名称</strong>：飞猪云</li>
+<li><strong>公司地址</strong>：中国</li>
+<li><strong>官网 / 注册</strong>： <a href="https://www.flyzhucloud.com/#/register?code=LzW4Hcwb">飞猪云官网</a></li>
+<li><strong>Telegram / 联系</strong>：提交工单</li>
+<li><strong>开通时间</strong>：2021年</li>
+<li><strong>协议支持</strong>：Trojan</li>
+<li><strong>入口线路</strong>： IEPL专线节点</li>
+<li><strong>支持 UDP</strong>：✅ 是</li>
+<li><strong>客户端支持</strong>：Clash, V2rayN, Shadowrocket</li>
+<li><strong>适用平台</strong>：Windows / macOS / iOS / Android</li>
+<li><strong>支付方式</strong>：支付宝 / 微信</li>
+<li><strong>套餐流量类型</strong>：周期计费</li>
+</ul>
+<h3>✨ 服务亮点</h3>
+<ul>
+<li>稳定</li>
+</ul>
+<h3>💰 套餐 &amp; 价格</h3>
+<table>
+<thead>
+<tr>
+<th>套餐类型</th>
+<th>流量</th>
+<th>价格</th>
+<th>支持设备</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>乳猪</td>
+<td>128 G</td>
+<td>¥10.00 / 月付</td>
+<td>10台设备限制</td>
+</tr>
+<tr>
+<td>仔猪</td>
+<td>256 G</td>
+<td>¥19.00 / 月付</td>
+<td>10台设备限制</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>mitce</h2>
+<h3>🔹 基本信息</h3>
+<ul>
+<li><strong>服务名称</strong>：mitce</li>
+<li><strong>官网 / 注册</strong>： <a href="https://mitce.net/aff.php?aff=35895">mitce官网</a></li>
+<li><strong>Telegram / 联系</strong>：提交工单</li>
+<li><strong>开通时间</strong>：未知</li>
+<li><strong>协议支持</strong>：Shadowsocks / Trojan / Vmess / VLESS</li>
+<li><strong>入口线路</strong>：直连 / 专线</li>
+<li><strong>支持 UDP</strong>：✅ 是</li>
+<li><strong>客户端支持</strong>：Clash, V2rayN, Shadowrocket, Hiddify</li>
+<li><strong>适用平台</strong>：Windows / macOS / iOS / Android</li>
+<li><strong>支付方式</strong>：支付宝 / 微信 / Paypal</li>
+<li><strong>套餐流量类型</strong>： / 周期计费 / 按量+周期计费</li>
+</ul>
+<h3>✨ 服务亮点</h3>
+<ul>
+<li>🌍 全球多节点，延迟低</li>
+<li>🎬 支持流媒体解锁</li>
+<li>⚡ 高稳定性，速度快</li>
+</ul>
+<h3>💰 套餐 &amp; 价格</h3>
+<table>
+<thead>
+<tr>
+<th>套餐类型</th>
+<th>流量</th>
+<th>价格</th>
+<th>支持设备</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Basic</td>
+<td>100G</td>
+<td>$0.60 USD</td>
+<td>5台</td>
+</tr>
+<tr>
+<td>Standard</td>
+<td>300G</td>
+<td>$1.20 USD</td>
+<td>5台</td>
+</tr>
+<tr>
+<td>Pro</td>
+<td>600G</td>
+<td>$2.00 USD</td>
+<td>5台</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>光速机场</h2>
+<h3>🔹 基本信息</h3>
+<ul>
+<li><strong>服务名称</strong>：光速机场</li>
+<li><strong>官网 / 注册</strong>： <a href="https://gscloud.sbs/#/register?code=f8crFBAd">光速机场官网</a></li>
+<li><strong>Telegram / 联系</strong>：<a href="https://t.me/fatcatcloud">点击加入</a></li>
+<li><strong>开通时间</strong>：2023 年</li>
+<li><strong>协议支持</strong>：Tuic / Hysteria2 / Vless</li>
+<li><strong>入口线路</strong>： IEPL / 中转</li>
+<li><strong>支持 UDP</strong>：✅ 是</li>
+<li><strong>客户端支持</strong>：Clash, V2rayN, Shadowrocket</li>
+<li><strong>适用平台</strong>：Windows / macOS / iOS / Android</li>
+<li><strong>支付方式</strong>：支付宝 / 微信</li>
+<li><strong>套餐流量类型</strong>：周期计费</li>
+</ul>
+<h3>✨ 服务亮点</h3>
+<ul>
+<li>⚡ 稳定性良好</li>
+<li>🎬 流媒体解锁效果良好</li>
+<li>🔐 协议支持丰富</li>
+<li>🌍 节点覆盖广</li>
+</ul>
+<h3>💰 套餐 &amp; 价格</h3>
+<table>
+<thead>
+<tr>
+<th>套餐类型</th>
+<th>流量</th>
+<th>价格</th>
+<th>支持设备</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100G流量</td>
+<td>100GB</td>
+<td>¥ 7.9 /月付</td>
+<td>支持流媒体AI解锁</td>
+</tr>
+<tr>
+<td>400G流量</td>
+<td>400GB</td>
+<td>¥ 14.9 /月付</td>
+<td>支持流媒体AI解锁</td>
+</tr>
+<tr>
+<td>1000G流量</td>
+<td>1000GB</td>
+<td>¥ 24.9 /月付</td>
+<td>支持流媒体AI解锁</td>
+</tr>
+<tr>
+<td>100G流量不限时</td>
+<td>100GB</td>
+<td>¥ 9.9 /一次性</td>
+<td>支持流媒体AI解锁</td>
+</tr>
+<tr>
+<td>1000G流量不限时</td>
+<td>1000GB</td>
+<td>¥ 29.9 /一次性</td>
+<td>支持流媒体AI解锁</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>红杏云</h2>
+<h3>🔹 基本信息</h3>
+<ul>
+<li><strong>服务名称</strong>：红杏云</li>
+<li><strong>官网 / 注册</strong>： <a href="https://hongxingyun.club/web/#/login?code=QhIuhCJV">红杏云机场官网</a></li>
+<li><strong>Telegram / 联系</strong>：<a href="https://t.me/Hongxingyun_bot">点击加入</a></li>
+<li><strong>开通时间</strong>：2021 年</li>
+<li><strong>协议支持</strong>：Shadowsocks / Trojan</li>
+<li><strong>入口线路</strong>：国内直连 / 海外中转</li>
+<li><strong>支持 UDP</strong>：✅ 是</li>
+<li><strong>客户端支持</strong>：Clash, V2rayN, Shadowrocket</li>
+<li><strong>适用平台</strong>：Windows / macOS / iOS / Android</li>
+<li><strong>支付方式</strong>：支付宝 / 微信 / USDT</li>
+<li><strong>套餐流量类型</strong>：周期计费 / 按量+周期计费</li>
+</ul>
+<h3>✨ 服务亮点</h3>
+<ul>
+<li>⚡ 高性价比，稳定性好</li>
+<li>🎬 支持流媒体解锁</li>
+<li>🌍 节点覆盖亚洲和美洲</li>
+<li>🔐 协议兼容性强</li>
+</ul>
+<h3>💰 套餐 &amp; 价格</h3>
+<table>
+<thead>
+<tr>
+<th>套餐类型</th>
+<th>流量</th>
+<th>价格</th>
+<th>支持设备</th>
+<th>价格徽章</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>轻量-包月200G</td>
+<td>200 GB/月</td>
+<td>¥18.00</td>
+<td>不限制，支持家庭成员共享</td>
+<td><img src="https://img.shields.io/badge/%E4%BB%B7%E6%A0%BC-18-red" alt="价格" /></td>
+</tr>
+<tr>
+<td>冲浪-包月500G</td>
+<td>500 GB/月</td>
+<td>¥38.00</td>
+<td>不限制，支持家庭成员共享</td>
+<td><img src="https://img.shields.io/badge/%E4%BB%B7%E6%A0%BC-38-gray" alt="价格" /></td>
+</tr>
+<tr>
+<td>豪华-包月800G「火爆」</td>
+<td>800 GB/月</td>
+<td>¥58.00</td>
+<td>不限制，支持家庭成员共享</td>
+<td><img src="https://img.shields.io/badge/%E4%BB%B7%E6%A0%BC-58-yellow" alt="价格" /></td>
+</tr>
+<tr>
+<td>大师-包月1200G</td>
+<td>1200 GB/月</td>
+<td>¥78.00</td>
+<td>不限制，支持家庭成员共享</td>
+<td><img src="https://img.shields.io/badge/%E4%BB%B7%E6%A0%BC-78-orange" alt="价格" /></td>
+</tr>
+<tr>
+<td>轻量-不限时1000G</td>
+<td>1000 GB/用完为止</td>
+<td>¥138.00</td>
+<td>不限制，支持家庭成员共享</td>
+<td><img src="https://img.shields.io/badge/%E4%BB%B7%E6%A0%BC-138-gray" alt="价格" /></td>
+</tr>
+<tr>
+<td>冲浪-不限时2000G</td>
+<td>2000 GB/用完为止</td>
+<td>¥258.00</td>
+<td>不限制，支持家庭成员共享</td>
+<td><img src="https://img.shields.io/badge/%E4%BB%B7%E6%A0%BC-258-black" alt="价格" /></td>
+</tr>
+<tr>
+<td>高级-不限时3000G「火爆」</td>
+<td>3000 GB/用完为止</td>
+<td>¥368.00</td>
+<td>不限制，支持家庭成员共享</td>
+<td><img src="https://img.shields.io/badge/%E4%BB%B7%E6%A0%BC-368-blue" alt="价格" /></td>
+</tr>
+<tr>
+<td>豪华-不限时6000G</td>
+<td>6000 GB/用完为止</td>
+<td>¥688.00</td>
+<td>不限制，支持家庭成员共享</td>
+<td><img src="https://img.shields.io/badge/%E4%BB%B7%E6%A0%BC-688-red" alt="价格" /></td>
+</tr>
+<tr>
+<td>大师-不限时9000G</td>
+<td>9000 GB/用完为止</td>
+<td>¥898.00</td>
+<td>不限制，支持家庭成员共享</td>
+<td><img src="https://img.shields.io/badge/%E4%BB%B7%E6%A0%BC-898-green" alt="价格" /></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>大米</h2>
+<h3>🔹 基本信息</h3>
+<ul>
+<li><strong>服务名称</strong>：BigME.Pro</li>
+<li><strong>官网 / 注册</strong>：🔗 <a href="https://happy.bigmess.org/user#/register?code=DhAZ9Ytd">大米机场官网</a></li>
+<li><strong>Telegram / 联系</strong>：<a href="https://t.me/bigme_public">点击加入</a></li>
+<li><strong>开通时间</strong>：2020 年</li>
+<li><strong>协议支持</strong>：Shadowsocks / Trojan</li>
+<li><strong>入口线路</strong>：国内直连 / 海外中转</li>
+<li><strong>支持 UDP</strong>：✅ 是</li>
+<li><strong>客户端支持</strong>：Clash, V2rayN, Shadowrocket</li>
+<li><strong>适用平台</strong>：Windows / macOS / iOS / Android</li>
+<li><strong>支付方式</strong>：支付宝 / 微信 / USDT</li>
+<li><strong>套餐流量类型</strong>：按量计费 / 周期计费</li>
+</ul>
+<h3>✨ 服务亮点</h3>
+<ul>
+<li>🌍 节点覆盖稳定</li>
+<li>🎬 支持流媒体解锁</li>
+<li>🔐 协议丰富，多客户端兼容</li>
+<li>⚡ 性价比高</li>
+</ul>
+<h3>💰 套餐 &amp; 价格</h3>
+<table>
+<thead>
+<tr>
+<th>套餐类型</th>
+<th>流量</th>
+<th>价格</th>
+<th>支持设备</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>试用套餐</td>
+<td>-</td>
+<td>¥999.00</td>
+<td>-</td>
+</tr>
+<tr>
+<td>超小Experience</td>
+<td>每月 45G</td>
+<td>¥6.00</td>
+<td>电视、电脑、手机等</td>
+</tr>
+<tr>
+<td>中流量Elite</td>
+<td>每月 120G</td>
+<td>¥10.00</td>
+<td>电视、电脑、手机等</td>
+</tr>
+<tr>
+<td>大流量Premium</td>
+<td>每月 250G</td>
+<td>¥20.00</td>
+<td>电视、电脑、手机等</td>
+</tr>
+<tr>
+<td>畅享套餐Enjoy</td>
+<td>每月 400G</td>
+<td>¥30.00</td>
+<td>电视、电脑、手机等</td>
+</tr>
+<tr>
+<td>无忧套餐Carefree</td>
+<td>每月 560G</td>
+<td>¥40.00</td>
+<td>电视、电脑、手机等</td>
+</tr>
+<tr>
+<td>放纵套餐Fuck</td>
+<td>每月 800G</td>
+<td>¥55.00</td>
+<td>电视、电脑、手机等</td>
+</tr>
+<tr>
+<td>超级套餐Super</td>
+<td>每月 1600G</td>
+<td>¥110.00</td>
+<td>电视、电脑、手机等</td>
+</tr>
+<tr>
+<td>不限时流量Small</td>
+<td>永久 400G</td>
+<td>¥60.00</td>
+<td>电视、电脑、手机等</td>
+</tr>
+<tr>
+<td>不限时流量Medium</td>
+<td>永久 600G</td>
+<td>¥82.00</td>
+<td>电视、电脑、手机等</td>
+</tr>
+<tr>
+<td>不限时流量Big</td>
+<td>永久 800G</td>
+<td>¥109.00</td>
+<td>电视、电脑、手机等</td>
+</tr>
+<tr>
+<td>不限时流量Large</td>
+<td>永久 1600G</td>
+<td>¥220.00</td>
+<td>电视、电脑、手机等</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>疾风云</h2>
+<h3>🔹 基本信息</h3>
+<ul>
+<li><strong>服务名称</strong>：疾风云</li>
+<li><strong>官网 / 注册</strong>：🔗 <a href="https://jump.tr25.cn/?code=Vtgm">疾风云机场官网</a></li>
+<li><strong>Telegram / 联系</strong>：工单和在线客服</li>
+<li><strong>开通时间</strong>：2022年</li>
+<li><strong>协议支持</strong>：Shadowsocks / V2ray / Trojan / VLESS</li>
+<li><strong>节点数量</strong>：</li>
+<li><strong>入口线路</strong>：国内 IEPL / 海外专线</li>
+<li><strong>支持 UDP</strong>：✅ 是</li>
+<li><strong>客户端支持</strong>：Clash, V2rayN, Shadowrocket, Hiddify</li>
+<li><strong>适用平台</strong>：Windows / macOS / iOS / Android / 路由器</li>
+<li><strong>支付方式</strong>：支付宝 / 微信</li>
+<li><strong>套餐流量类型</strong>：周期计费</li>
+</ul>
+<h3>✨ 服务亮点</h3>
+<ul>
+<li>🌍 全球节点覆盖，延迟低</li>
+<li>🎬 支持 Netflix / Disney+ / YouTube 流媒体</li>
+<li>🔐 协议丰富，多客户端兼容</li>
+<li>⚡ 高稳定性，适合办公和观影</li>
+</ul>
+<h3>💰 套餐 &amp; 价格</h3>
+<table>
+<thead>
+<tr>
+<th>套餐类型</th>
+<th>流量</th>
+<th>价格</th>
+<th>支持设备</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>入门版</td>
+<td>50GB</td>
+<td>¥13.99</td>
+<td>2个在线客户端</td>
+</tr>
+<tr>
+<td>基础版</td>
+<td>100GB</td>
+<td>¥19.99</td>
+<td>3个在线客户端</td>
+</tr>
+<tr>
+<td>标准版</td>
+<td>200GB</td>
+<td>¥29.99</td>
+<td>3个在线客户端</td>
+</tr>
+<tr>
+<td>高级版</td>
+<td>350GB</td>
+<td>¥39.99</td>
+<td>5个在线客户端</td>
+</tr>
+<tr>
+<td>旗舰版</td>
+<td>600GB</td>
+<td>¥59.99</td>
+<td>8个在线客户端</td>
+</tr>
+<tr>
+<td>旗舰版大流量</td>
+<td>1200GB</td>
+<td>¥99.99</td>
+<td>10个在线客户端</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>蓝帆云</h2>
+<h3>🔹 基本信息</h3>
+<ul>
+<li><strong>服务名称</strong>：蓝帆云</li>
+<li><strong>官网 / 注册</strong>：🔗 <a href="https://lanfanz.cc/portal/register?code=yk3V">蓝帆云机场官网</a></li>
+<li><strong>Telegram / 联系</strong>：<a href="https://t.me/lanfan">点击加入</a></li>
+<li><strong>开通时间</strong>：2021 年</li>
+<li><strong>协议支持</strong>：Shadowsocks / V2ray / Trojan</li>
+<li><strong>入口线路</strong>：国内 IEPL / 海外直连</li>
+<li><strong>客户端支持</strong>：Clash, V2rayN, Shadowrocket</li>
+<li><strong>适用平台</strong>：Windows / macOS / iOS / Android / 路由器</li>
+<li><strong>支付方式</strong>：支付宝 / 微信 / Paypal / USDT</li>
+<li><strong>套餐流量类型</strong>：按量计费 / 周期计费</li>
+</ul>
+<h3>✨ 服务亮点</h3>
+<ul>
+<li>🌍 全球多节点</li>
+<li>🎬 流媒体解锁稳定</li>
+<li>🔐 协议丰富</li>
+<li>⚡ 高稳定性，适合办公与观影</li>
+</ul>
+<h3>💰 套餐 &amp; 价格</h3>
+<table>
+<thead>
+<tr>
+<th>套餐类型</th>
+<th>流量</th>
+<th>价格</th>
+<th>支持设备</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>入门版</td>
+<td>50GB</td>
+<td>¥12.99</td>
+<td>2个设备</td>
+</tr>
+<tr>
+<td>基础版</td>
+<td>100GB</td>
+<td>¥17.99</td>
+<td>2个设备</td>
+</tr>
+<tr>
+<td>标准版</td>
+<td>200GB</td>
+<td>¥32.99</td>
+<td>3个设备</td>
+</tr>
+<tr>
+<td>高级版</td>
+<td>350GB</td>
+<td>¥42.99</td>
+<td>4个设备</td>
+</tr>
+<tr>
+<td>旗舰版</td>
+<td>600GB</td>
+<td>¥64.99</td>
+<td>5个设备</td>
+</tr>
+<tr>
+<td>旗舰版大流量</td>
+<td>1200GB</td>
+<td>¥109.99</td>
+<td>6个设备</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>赔钱机场</h2>
+<h3>🔹 基本信息</h3>
+<ul>
+<li><strong>服务名称</strong>：赔钱机场</li>
+<li><strong>官网 / 注册</strong>：🔗 <a href="https://xn--cp3a08l.com/#/register?code=RJXPmRBE">赔钱机场官网</a></li>
+<li><strong>Telegram / 联系</strong>：工单系统</li>
+<li><strong>开通时间</strong>：2020 年</li>
+<li><strong>协议支持</strong>：Shadowsocks / Trojan / Vmess</li>
+<li><strong>入口线路</strong>：国内 IEPL / 海外直连</li>
+<li><strong>支持 UDP</strong>：✅ 是</li>
+<li><strong>客户端支持</strong>：Clash, V2rayN, Shadowrocket</li>
+<li><strong>适用平台</strong>：Windows / macOS / iOS / Android</li>
+<li><strong>支付方式</strong>：支付宝 / 微信 / USDT</li>
+<li><strong>套餐流量类型</strong>：按量计费 / 周期计费</li>
+</ul>
+<h3>✨ 服务亮点</h3>
+<ul>
+<li>⚡ 稳定性一般，但价格便宜</li>
+<li>🌍 节点覆盖有限</li>
+<li>🔐 协议兼容性良好</li>
+<li>🎬 支持流媒体解锁</li>
+</ul>
+<h3>💰 套餐 &amp; 价格</h3>
+<table>
+<thead>
+<tr>
+<th>套餐类型</th>
+<th>流量</th>
+<th>价格</th>
+<th>支持设备</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>大瓶可乐</td>
+<td>1000GB</td>
+<td>¥5.99</td>
+<td>20</td>
+</tr>
+<tr>
+<td>超大瓶可乐</td>
+<td>5000GB</td>
+<td>¥12.99</td>
+<td>30</td>
+</tr>
+<tr>
+<td>水桶可乐</td>
+<td>20000GB</td>
+<td>¥39.99</td>
+<td>40</td>
+</tr>
+<tr>
+<td>中瓶可乐</td>
+<td>500GB</td>
+<td>¥2.99</td>
+<td>15</td>
+</tr>
+<tr>
+<td>一瓶盖可乐</td>
+<td>100GB</td>
+<td>¥1.50</td>
+<td>10</td>
+</tr>
+<tr>
+<td>企业套餐</td>
+<td>99999GB</td>
+<td>¥280.00</td>
+<td>300</td>
+</tr>
+<tr>
+<td>一会嗦一口</td>
+<td>1000GB</td>
+<td>¥18.90</td>
+<td>10</td>
+</tr>
+<tr>
+<td>一会嗦</td>
+<td>4000GB</td>
+<td>¥68.90</td>
+<td>20</td>
+</tr>
+<tr>
+<td>一大口</td>
+<td>6000GB</td>
+<td>¥88.99</td>
+<td>30</td>
+</tr>
+<tr>
+<td>至尊订阅</td>
+<td>20000GB</td>
+<td>¥228.80</td>
+<td>40</td>
+</tr>
+<tr>
+<td>顶级王冠</td>
+<td>99999GB</td>
+<td>¥688.00</td>
+<td>300</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>📌 使用建议</h2>
+<ol>
+<li>
+<p><strong>先小流量测试</strong></p>
+<ul>
+<li>新机场或不熟悉的机场建议先购买月付或小流量套餐，验证节点稳定性和速度。</li>
+<li>避免一次性年付，降低风险。</li>
+</ul>
+</li>
+<li>
+<p><strong>价格不是唯一标准</strong></p>
+<ul>
+<li>极低价机场往往稳定性不足，高峰期容易掉线。</li>
+<li>稳定性、节点数量、延迟和流媒体解锁能力应优先考虑。</li>
+</ul>
+</li>
+<li>
+<p><strong>准备备用机场</strong></p>
+<ul>
+<li>即使首选机场表现良好，也建议保留 1~2 个备用机场，防止临时不可用。</li>
+<li>备用机场可以轮流测试，保持可用性。</li>
+</ul>
+</li>
+<li>
+<p><strong>关注节点分布与延迟</strong></p>
+<ul>
+<li>选择离你所在地近的节点可降低延迟。</li>
+<li>高峰期可尝试切换不同地区节点，以获得更稳定体验。</li>
+</ul>
+</li>
+<li>
+<p><strong>协议与客户端兼容性</strong></p>
+<ul>
+<li>确认机场支持的协议与你常用客户端匹配。</li>
+<li>不同客户端的表现可能略有差异，实际体验为准。</li>
+</ul>
+</li>
+<li>
+<p><strong>流量使用与套餐选择</strong></p>
+<ul>
+<li>根据自身使用需求选择合适流量套餐，避免流量不足或浪费。</li>
+<li>关注套餐有效期、续费规则和是否自动续费。</li>
+</ul>
+</li>
+<li>
+<p><strong>定期关注机场公告</strong></p>
+<ul>
+<li>老牌机场会不定期更新节点或协议，关注公告可避免突然不可用。</li>
+<li>对新机场尤其重要，及时调整配置。</li>
+</ul>
+</li>
+<li>
+<p><strong>安全与隐私注意</strong></p>
+<ul>
+<li>不在机场上存储敏感信息，尽量使用安全客户端。</li>
+<li>避免连接公共不明节点，防止信息泄露。</li>
+</ul>
+</li>
+<li>
+<p><strong>社区经验参考</strong></p>
+<ul>
+<li>可以关注论坛、社群或 GitHub Issues，了解其他用户反馈。</li>
+<li>结合自己体验，形成稳定使用习惯。</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2>⚠️ 机场跑路风险</h2>
+<ol>
+<li>
+<p><strong>跑路风险不可忽视</strong></p>
+<ul>
+<li>部分新机场可能因经营不善或其他原因突然关闭，导致账号和余额丢失。</li>
+</ul>
+</li>
+<li>
+<p><strong>分散风险</strong></p>
+<ul>
+<li>不要把所有流量或订阅集中在单一机场，建议多机场备份使用。</li>
+</ul>
+</li>
+<li>
+<p><strong>小额尝试为主</strong></p>
+<ul>
+<li>对新机场先月付或小额套餐，验证稳定性和信誉后再考虑长期使用。</li>
+</ul>
+</li>
+<li>
+<p><strong>关注社区反馈</strong></p>
+<ul>
+<li>可通过论坛、Telegram 群、GitHub Issues 等获取其他用户的最新使用情况。</li>
+</ul>
+</li>
+<li>
+<p><strong>注意官方公告</strong></p>
+<ul>
+<li>老牌机场一般会提前公告节点维护或关闭计划，新机场公告可能不及时。</li>
+</ul>
+</li>
+<li>
+<p><strong>心理准备</strong></p>
+<ul>
+<li>使用机场始终存在一定风险，应做好临时切换或备用方案准备。</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2>📌 免责声明</h2>
+<p>本文章内容根据个人及社区实际使用体验整理， 不构成任何购买建议。因为所有机场服务均由第三方独立运营, 使用过程中产生的任何问题或风险，需由用户自行承担。</p>
+<p>感谢<a href="https://github.com/hotseo123">hotseo123 </a>的<a href="https://github.com/hotseo123/shida-jichang-tuijian">仓库</a>，本文章排版参考，侵删</p>
+]]></content>
+    <author>
+      <name>Yiban</name>
+    </author>
+    <category term="推荐"></category>
+  </entry>
+  <entry>
+    <title>Mizuki框架基本文章结构</title>
+    <link href="https://yiban.ccwu.cc/posts/guide/" rel="alternate" type="text/html"/>
+    <id>https://yiban.ccwu.cc/posts/guide/</id>
+    <published>2026-04-11T00:00:00.000Z</published>
+    <updated>2026-04-11T00:00:00.000Z</updated>
+    <summary>怎么创建文章</summary>
+    <content type="html"><![CDATA[<p>本博客也是由Mizuki框架搭建</p>
+<h2>创建文章</h2>
+<pre><code>---
+title: My First Blog Post
+published: 2023-09-09
+description: This is the first post of my new Astro blog.
+image: ./cover.jpg
+tags: [Foo, Bar]
+category: Front-end
+draft: false
+---
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>title</code></td>
+<td>The title of the post.</td>
+</tr>
+<tr>
+<td><code>published</code></td>
+<td>The date the post was published.</td>
+</tr>
+<tr>
+<td><code>pinned</code></td>
+<td>Whether this post is pinned to the top of the post list.</td>
+</tr>
+<tr>
+<td><code>priority</code></td>
+<td>The priority of the pinned post. Smaller value means higher priority (0, 1, 2...).</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>A short description of the post. Displayed on index page.</td>
+</tr>
+<tr>
+<td><code>image</code></td>
+<td>The cover image path of the post.&lt;br/&gt;1. Start with <code>http://</code> or <code>https://</code>: Use web image&lt;br/&gt;2. Start with <code>/</code>: For image in <code>public</code> dir&lt;br/&gt;3. With none of the prefixes: Relative to the markdown file</td>
+</tr>
+<tr>
+<td><code>tags</code></td>
+<td>The tags of the post.</td>
+</tr>
+<tr>
+<td><code>category</code></td>
+<td>The category of the post.</td>
+</tr>
+<tr>
+<td><code>licenseName</code></td>
+<td>The license name for the post content.</td>
+</tr>
+<tr>
+<td><code>author</code></td>
+<td>The author of the post.</td>
+</tr>
+<tr>
+<td><code>sourceLink</code></td>
+<td>The source link or reference for the post content.</td>
+</tr>
+<tr>
+<td><code>draft</code></td>
+<td>If this post is still a draft, which won't be displayed.</td>
+</tr>
+</tbody>
+</table>
+<h2>结构</h2>
+<pre><code>src/content/posts/
+├── post-1.md
+└── post-2/
+    ├── cover.webp
+    └── index.md
+</code></pre>
+]]></content>
+    <author>
+      <name>Yiban</name>
+    </author>
+    <category term="教程"></category>
+  </entry>
+</feed>
