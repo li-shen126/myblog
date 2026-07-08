@@ -5,8 +5,134 @@
   <link href="https://yiban.ccwu.cc/" rel="alternate" type="text/html"/>
   <link href="https://yiban.ccwu.cc/atom.xml" rel="self" type="application/atom+xml"/>
   <id>https://yiban.ccwu.cc/</id>
-  <updated>2026-07-06T07:08:56.080Z</updated>
+  <updated>2026-07-08T06:48:12.763Z</updated>
   <language>zh_CN</language>
+  <entry>
+    <title>本博客搭建教程-Mizuki博客的构建</title>
+    <link href="https://yiban.ccwu.cc/posts/mizuki-1/mizuki-1/" rel="alternate" type="text/html"/>
+    <id>https://yiban.ccwu.cc/posts/mizuki-1/mizuki-1/</id>
+    <published>2026-07-07T00:00:00.000Z</published>
+    <updated>2026-07-07T00:00:00.000Z</updated>
+    <summary>教程参考Mizuki官方文档 结合个人经验总结的教程 也总结一下我个人构建的时候踩的一些坑</summary>
+    <content type="html"><![CDATA[<ul>
+<li>声明 本教程参考Mizuki官方文档 结合个人经验总结的教程</li>
+</ul>
+<h2>一、环境准备</h2>
+<h3>1.安装</h3>
+<p>Windows系统环境：node.js22以上版本 git任意版本</p>
+<p>node.js安装：<a href="https://nodejs.org/zh-cn/download">点击</a></p>
+<p>git安装：<a href="https://git-scm.com/download/win">点击</a></p>
+<h3>2.验证</h3>
+<p>安装完成后打开终端或命令提示符验证安装</p>
+<pre><code>node -v
+npm -v
+git --version
+</code></pre>
+<p>如果显示版本号，则表示安装成功</p>
+<h3>3.安装pnpm</h3>
+<p>接下来安装pnpm包管理器，可以使用npm安装</p>
+<pre><code>npm install -g pnpm
+</code></pre>
+<p>安装完成后，打开终端或命令提示符，运行以下命令验证 pnpm 是否安装成功</p>
+<pre><code>pnpm -v
+</code></pre>
+<p>如果显示版本号，则表示安装成功</p>
+<h2>二、部署项目</h2>
+<h3>1.拉取项目</h3>
+<p>打开git软件，将Mizuki 项目拉取到本地</p>
+<pre><code>git clone https://github.com/LyraVoid/Mizuki.git
+</code></pre>
+<h3>2.安装依赖</h3>
+<p>进入Mizuki项目目录下使用 pnpm 安装项目依赖</p>
+<pre><code>pnpm install
+</code></pre>
+<h2>三、配置博客</h2>
+<h3>1.编辑config.ts文件</h3>
+<p>Mizuki博客可以通过编辑 <code>src/config.ts</code> 文件来自定义博客设置</p>
+<h4>基本界面</h4>
+<pre><code>const SITE_LANG = "ja"; // 语言代码，例如：'en', 'zh_CN', 'ja' 等。
+const SITE_TIMEZONE = 8; //设置你的网站时区 from -12 to 12 default in UTC+8
+export const siteConfig: SiteConfig = {
+    title: "Mizuki",
+    subtitle: "One demo website",
+    siteURL: "https://mizuki.mysqil.com/", // 请替换为你的站点URL，以斜杠结尾
+    siteStartDate: "2025-01-01", // 站点开始运行日期，用于站点统计组件计算运行天数
+    timeZone: SITE_TIMEZONE,
+
+    lang: SITE_LANG,
+
+    themeColor: {
+       hue: 60, // 主题色的默认色相，范围从 0 到 360。例如：红色：0，青色：200，蓝绿色：250，粉色：345
+       fixed: false, // 对访问者隐藏主题色选择器
+    },
+</code></pre>
+<ul>
+<li>
+<p><code>siteStartDate</code>：站点开始运行日期，格式为 <code>YYYY-MM-DD</code></p>
+</li>
+<li>
+<p><code>siteURL</code>：你的网站 URL，必须以斜杠结尾，例如 <code>https://example.com/</code></p>
+</li>
+<li>
+<p><code>title</code>：网站的主标题，显示在浏览器标签页和页面头部</p>
+</li>
+<li>
+<p><code>subtitle</code>：网站的副标题，通常显示在主页横幅下方</p>
+</li>
+<li>
+<p><code>lang</code>：网站的默认语言，影响日期格式、翻译等功能</p>
+</li>
+<li>
+<p><code>timeZone</code>：网站的时区设置，影响日期显示和时间计算</p>
+</li>
+<li>
+<p><code>hue</code>：主题色的色相值，可以是 0-360 之间的任何数值</p>
+</li>
+<li>
+<p><code>fixed</code>：设置为 <code>true</code> 时，访客将无法更改主题色</p>
+</li>
+</ul>
+<h4>标题配置</h4>
+<pre><code>// 顶栏标题配置
+navbarTitle: {
+    // 显示模式："text-icon" 显示图标+文本，"logo" 仅显示Logo
+    mode: "logo",
+    // 顶栏标题文本
+    text: "MizukiUI",
+    // 顶栏标题图标路径，默认使用 public/assets/home/home.png
+    icon: "assets/home/home.png",
+    // 网站Logo图片路径
+    logo: "assets/home/default-logo.png",
+},
+</code></pre>
+<ul>
+<li><code>mode</code>：显示模式，<code>"text-icon"</code> 显示图标+文本，<code>"logo"</code> 仅显示Logo</li>
+<li><code>text</code>：顶栏标题文本</li>
+<li><code>icon</code>：顶栏标题图标路径，默认使用 <code>public/assets/home/home.png</code>
+<ul>
+<li>图标建议尺寸：32x32 像素，格式为 PNG 或 WebP</li>
+</ul>
+</li>
+<li><code>logo</code>：网站Logo图片路径</li>
+</ul>
+<p>其他更多设置项见<a href="https://docs.mizuki.mysqil.com/Basic-Layout/site-config/">Mizuki官方教程</a></p>
+<h3>2.本地启动</h3>
+<p>运行以下命令启动开发服务器</p>
+<pre><code>pnpm dev
+</code></pre>
+<p>启动成功后，您可以在浏览器中访问 <code>http://localhost:4321</code> 查看您的博客本地预览</p>
+<h3>3.打包</h3>
+<p>运行以下命令打包成静态文件，生成到 <code>dist</code> 目录中</p>
+<pre><code>pnpm build
+</code></pre>
+<p>生成的 <code>dist</code> 目录就可以部署到自己的服务器上啦</p>
+<p>如果需要部署到云服务器或者静态托管教程的话看本站下一篇文章 <a href="https://yiban.ccwu.cc/posts/mizuki-2/mizuki-2/">点击</a></p>
+]]></content>
+    <author>
+      <name>Yiban</name>
+    </author>
+    <category term="教程"></category>
+  </entry>
   <entry>
     <title>稳定好用机场推荐</title>
     <link href="https://yiban.ccwu.cc/posts/vpn26-4/vpn26-4/" rel="alternate" type="text/html"/>
