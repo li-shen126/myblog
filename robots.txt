@@ -3,4 +3,4 @@ Disallow: /
 Allow: /$
 Allow: /posts/
 
-Sitemap: https://yiban.ccwu.cc/sitemap-index.xml
+Sitemap: https://www.0110330.xyz/sitemap-index.xml

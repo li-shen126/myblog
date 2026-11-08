@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Yiban 的 blog</title>
-  <subtitle>Welcome</subtitle>
-  <link href="https://yiban.ccwu.cc/" rel="alternate" type="text/html"/>
-  <link href="https://yiban.ccwu.cc/atom.xml" rel="self" type="application/atom+xml"/>
-  <id>https://yiban.ccwu.cc/</id>
-  <updated>2026-07-08T08:08:19.833Z</updated>
+  <title>Yiban の blog</title>
+  <subtitle>杂鱼~</subtitle>
+  <link href="https://www.0110330.xyz/" rel="alternate" type="text/html"/>
+  <link href="https://www.0110330.xyz/atom.xml" rel="self" type="application/atom+xml"/>
+  <id>https://www.0110330.xyz/</id>
+  <updated>2026-11-08T11:56:22.436Z</updated>
   <language>zh_CN</language>
   <entry>
     <title>本博客搭建教程-Mizuki博客的构建</title>
-    <link href="https://yiban.ccwu.cc/posts/mizuki-1/mizuki-1/" rel="alternate" type="text/html"/>
-    <id>https://yiban.ccwu.cc/posts/mizuki-1/mizuki-1/</id>
+    <link href="https://www.0110330.xyz/posts/mizuki-1/mizuki-1/" rel="alternate" type="text/html"/>
+    <id>https://www.0110330.xyz/posts/mizuki-1/mizuki-1/</id>
     <published>2026-07-07T00:00:00.000Z</published>
     <updated>2026-07-07T00:00:00.000Z</updated>
     <summary>教程参考Mizuki官方文档 结合个人经验总结的教程 也总结一下我个人构建的时候踩的一些坑</summary>
@@ -135,8 +135,8 @@ navbarTitle: {
   </entry>
   <entry>
     <title>稳定好用机场推荐</title>
-    <link href="https://yiban.ccwu.cc/posts/vpn26-4/vpn26-4/" rel="alternate" type="text/html"/>
-    <id>https://yiban.ccwu.cc/posts/vpn26-4/vpn26-4/</id>
+    <link href="https://www.0110330.xyz/posts/vpn26-4/vpn26-4/" rel="alternate" type="text/html"/>
+    <id>https://www.0110330.xyz/posts/vpn26-4/vpn26-4/</id>
     <published>2026-04-12T00:00:00.000Z</published>
     <updated>2026-04-12T00:00:00.000Z</updated>
     <summary>这是我这几年经个人测试总结的一份机场清单 全部机场都由我自费购买 部分机场含优惠码</summary>
@@ -977,8 +977,8 @@ navbarTitle: {
   </entry>
   <entry>
     <title>Mizuki框架基本文章结构</title>
-    <link href="https://yiban.ccwu.cc/posts/guide/" rel="alternate" type="text/html"/>
-    <id>https://yiban.ccwu.cc/posts/guide/</id>
+    <link href="https://www.0110330.xyz/posts/guide/" rel="alternate" type="text/html"/>
+    <id>https://www.0110330.xyz/posts/guide/</id>
     <published>2026-04-11T00:00:00.000Z</published>
     <updated>2026-04-11T00:00:00.000Z</updated>
     <summary>怎么创建文章</summary>
