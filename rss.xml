@@ -1,4 +1,122 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Yiban の blog</title><description>杂鱼~</description><link>https://www.0110330.xyz/</link><language>zh_CN</language><item><title>本博客搭建教程-Mizuki博客的构建</title><link>https://www.0110330.xyz/posts/mizuki-1/mizuki-1/</link><guid isPermaLink="true">https://www.0110330.xyz/posts/mizuki-1/mizuki-1/</guid><description>教程参考Mizuki官方文档 结合个人经验总结的教程 也总结一下我个人构建的时候踩的一些坑</description><pubDate>Tue, 07 Jul 2026 00:00:00 GMT</pubDate><content:encoded>&lt;ul&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Yiban の blog</title><description>杂鱼~</description><link>https://www.0110330.xyz/</link><language>zh_CN</language><item><title>本博客搭建教程（续）-Git、GitHub 与 Cloudflare Pages</title><link>https://www.0110330.xyz/posts/mizuki-2/mizuki-2/</link><guid isPermaLink="true">https://www.0110330.xyz/posts/mizuki-2/mizuki-2/</guid><description>上一篇把博客在本地跑起来了，这一篇讲怎么把 dist 推到 GitHub，再用 Cloudflare Pages 上线，并绑定自己的域名</description><pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate><content:encoded>&lt;ul&gt;
+&lt;li&gt;声明 本教程是上一篇的续章，承接本地构建完成之后的部署部分&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;一、准备工作&lt;/h2&gt;
+&lt;p&gt;上一篇已经把博客在本地跑起来了，这一篇把它放到公网上。&lt;/p&gt;
+&lt;p&gt;需要准备：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一个 GitHub 账号&lt;/li&gt;
+&lt;li&gt;一个 Cloudflare 账号&lt;/li&gt;
+&lt;li&gt;本地已经能 &lt;code&gt;pnpm build&lt;/code&gt; 成功&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;1.检查 Git&lt;/h3&gt;
+&lt;p&gt;打开终端，确认 Git 已经安装：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git --version
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;没有的话去 &lt;a href=&quot;https://git-scm.com/download/win&quot;&gt;git-scm.com&lt;/a&gt; 下载安装，一路下一步就行。&lt;/p&gt;
+&lt;h3&gt;2.配置提交身份&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;git config --global user.name &quot;你的名字&quot;
+git config --global user.email &quot;你的邮箱&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;邮箱建议和 GitHub 账号一致，提交记录里会显示。&lt;/p&gt;
+&lt;h2&gt;二、创建 GitHub 仓库&lt;/h2&gt;
+&lt;p&gt;登录 GitHub，右上角 &lt;code&gt;+&lt;/code&gt; → &lt;code&gt;New repository&lt;/code&gt;。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Repository name：&lt;code&gt;myblog&lt;/code&gt;（名字随意，自己能记住就行）&lt;/li&gt;
+&lt;li&gt;可见性：Public / Private 都可以，Cloudflare Pages 支持私有仓库&lt;/li&gt;
+&lt;li&gt;不要勾选 &lt;code&gt;Add a README file&lt;/code&gt;，避免和本地第一次推送冲突&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;创建完成后会得到仓库地址，例如：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;https://github.com/你的用户名/myblog.git
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;三、把构建结果推上去&lt;/h2&gt;
+&lt;h3&gt;1.构建&lt;/h3&gt;
+&lt;p&gt;在 Mizuki 项目目录执行：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pnpm build
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;构建完成后会生成 &lt;code&gt;dist&lt;/code&gt; 目录，里面就是完整的静态网站。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果你启用了 Mizuki 的内容分离，构建前会先从内容仓库同步文章，&lt;code&gt;pnpm build&lt;/code&gt; 会自动处理，不用手动复制。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;2.准备部署目录&lt;/h3&gt;
+&lt;p&gt;新建一个空文件夹，比如 &lt;code&gt;H:\files\备份\myblog&lt;/code&gt;，把 &lt;code&gt;dist&lt;/code&gt; 里的&lt;strong&gt;全部内容&lt;/strong&gt;复制进去。&lt;/p&gt;
+&lt;p&gt;注意：复制的是 &lt;code&gt;dist&lt;/code&gt; 里面的文件，不是把 &lt;code&gt;dist&lt;/code&gt; 文件夹整个复制进去。复制完应该是这样：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;myblog/
+├── index.html
+├── 404.html
+├── _astro/
+├── assets/
+├── favicon/
+├── posts/
+└── ...
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果打开 &lt;code&gt;myblog&lt;/code&gt; 看到的是一层 &lt;code&gt;dist&lt;/code&gt; 文件夹，说明复制错了，Cloudflare Pages 会 404。&lt;/p&gt;
+&lt;h3&gt;3.初始化并推送&lt;/h3&gt;
+&lt;p&gt;进入这个目录：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd H:\files\备份\myblog
+git init
+git add .
+git commit -m &quot;first deploy&quot;
+git branch -M master
+git remote add origin https://github.com/你的用户名/myblog.git
+git push -u origin master
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;第一次 push 时 Git 会弹出 GitHub 登录窗口，按提示授权即可，Windows 的 Git Credential Manager 会自动记住。&lt;/p&gt;
+&lt;p&gt;如果没有弹窗或者提示认证失败，就去 GitHub 生成一个 Personal Access Token：&lt;/p&gt;
+&lt;p&gt;头像 → &lt;code&gt;Settings&lt;/code&gt; → &lt;code&gt;Developer settings&lt;/code&gt; → &lt;code&gt;Personal access tokens&lt;/code&gt; → &lt;code&gt;Tokens (classic)&lt;/code&gt; → &lt;code&gt;Generate new token&lt;/code&gt;，勾选 &lt;code&gt;repo&lt;/code&gt;，生成后复制。&lt;/p&gt;
+&lt;p&gt;push 时用户名填 GitHub 用户名，密码粘贴 Token，不是账号密码。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;也可以用 SSH：&lt;code&gt;ssh-keygen -t ed25519 -C &quot;邮箱&quot;&lt;/code&gt;，把 &lt;code&gt;~/.ssh/id_ed25519.pub&lt;/code&gt; 的内容填到 GitHub 的 &lt;code&gt;SSH and GPG keys&lt;/code&gt; 里，然后把上面的仓库地址换成 SSH 地址即可。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;刷新 GitHub 仓库页面，能看到文件就说明推送成功。&lt;/p&gt;
+&lt;h2&gt;四、Cloudflare Pages 部署&lt;/h2&gt;
+&lt;h3&gt;1.创建项目&lt;/h3&gt;
+&lt;p&gt;登录 Cloudflare 控制台，进入 &lt;code&gt;Workers &amp;amp; Pages&lt;/code&gt; → &lt;code&gt;Create&lt;/code&gt; → &lt;code&gt;Pages&lt;/code&gt; → &lt;code&gt;Connect to Git&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;授权 GitHub，选择刚才的 &lt;code&gt;myblog&lt;/code&gt; 仓库，分支选 &lt;code&gt;master&lt;/code&gt;。&lt;/p&gt;
+&lt;h3&gt;2.构建设置&lt;/h3&gt;
+&lt;p&gt;因为仓库里已经是构建好的静态文件，这里不需要再构建：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Framework preset：&lt;code&gt;None&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Build command：留空&lt;/li&gt;
+&lt;li&gt;Build output directory：&lt;code&gt;/&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;点击 &lt;code&gt;Save and Deploy&lt;/code&gt;。&lt;/p&gt;
+&lt;h3&gt;3.访问&lt;/h3&gt;
+&lt;p&gt;部署完成后会得到一个 &lt;code&gt;xxx.pages.dev&lt;/code&gt; 的地址，打开能看到博客就成功了。&lt;/p&gt;
+&lt;h2&gt;五、绑定自己的域名&lt;/h2&gt;
+&lt;h3&gt;1.添加自定义域&lt;/h3&gt;
+&lt;p&gt;进入 Pages 项目 → &lt;code&gt;Custom domains&lt;/code&gt; → &lt;code&gt;Set up a custom domain&lt;/code&gt;，输入你的域名，比如 &lt;code&gt;www.example.com&lt;/code&gt;。&lt;/p&gt;
+&lt;h3&gt;2.DNS 解析&lt;/h3&gt;
+&lt;p&gt;域名托管在 Cloudflare 的话，按提示直接确认即可；在别的服务商，就按提示添加一条 CNAME 记录，指向 &lt;code&gt;你的项目.pages.dev&lt;/code&gt;。&lt;/p&gt;
+&lt;h3&gt;3.HTTPS&lt;/h3&gt;
+&lt;p&gt;Cloudflare 会自动签发证书，等状态变成 &lt;code&gt;Active&lt;/code&gt; 就能用 &lt;code&gt;https://&lt;/code&gt; 访问了。&lt;/p&gt;
+&lt;p&gt;最后记得把 &lt;code&gt;src/config.ts&lt;/code&gt; 里的 &lt;code&gt;siteURL&lt;/code&gt; 改成自己的域名，重新构建推送一次，不然 RSS、sitemap 里的链接还是旧的。&lt;/p&gt;
+&lt;h2&gt;六、日常更新&lt;/h2&gt;
+&lt;p&gt;以后每次改完文章或配置，重复这三步：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pnpm build
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;把新的 &lt;code&gt;dist&lt;/code&gt; 内容复制到 &lt;code&gt;myblog&lt;/code&gt; 目录，覆盖旧文件，然后：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd H:\files\备份\myblog
+git add .
+git commit -m &quot;update&quot;
+git push
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Cloudflare Pages 检测到 push 会自动重新发布，一般一分钟左右生效。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果嫌手动复制麻烦，可以写一个脚本把「构建 → 复制 → 提交 → 推送」串起来。本站目前就是本地构建后推 &lt;code&gt;myblog&lt;/code&gt; 的方式，简单、可控。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;七、常见问题&lt;/h2&gt;
+&lt;h3&gt;1.打开是 404&lt;/h3&gt;
+&lt;p&gt;检查 Cloudflare Pages 的 &lt;code&gt;Build output directory&lt;/code&gt; 是不是 &lt;code&gt;/&lt;/code&gt;，以及仓库根目录有没有 &lt;code&gt;index.html&lt;/code&gt;。如果根目录多了一层 &lt;code&gt;dist&lt;/code&gt;，把它移出来。&lt;/p&gt;
+&lt;h3&gt;2.样式或图片 404&lt;/h3&gt;
+&lt;p&gt;多半是复制 &lt;code&gt;dist&lt;/code&gt; 时漏了 &lt;code&gt;_astro&lt;/code&gt; 或 &lt;code&gt;assets&lt;/code&gt; 目录，重新完整复制一遍再 push。&lt;/p&gt;
+&lt;h3&gt;3.更新后线上没变化&lt;/h3&gt;
+&lt;p&gt;先看 Cloudflare Pages 的 &lt;code&gt;Deployments&lt;/code&gt; 有没有新部署；有的话可能是浏览器缓存，&lt;code&gt;Ctrl+F5&lt;/code&gt; 强制刷新，或者在 Pages 里手动 &lt;code&gt;Retry deployment&lt;/code&gt;。&lt;/p&gt;
+&lt;h3&gt;4.push 提示 Authentication failed&lt;/h3&gt;
+&lt;p&gt;HTTPS 方式不能用账号密码，要用 Personal Access Token；Token 过期了就重新生成一个。&lt;/p&gt;
+&lt;h2&gt;结语&lt;/h2&gt;
+&lt;p&gt;到这里，博客就从本地跑到了公网上。下一篇可以写写内容分离和 Obsidian 写作，或者写写 Cloudflare 的缓存和加速，随缘更新。&lt;/p&gt;
+</content:encoded></item><item><title>本博客搭建教程-Mizuki博客的构建</title><link>https://www.0110330.xyz/posts/mizuki-1/mizuki-1/</link><guid isPermaLink="true">https://www.0110330.xyz/posts/mizuki-1/mizuki-1/</guid><description>教程参考Mizuki官方文档 结合个人经验总结的教程 也总结一下我个人构建的时候踩的一些坑</description><pubDate>Tue, 07 Jul 2026 00:00:00 GMT</pubDate><content:encoded>&lt;ul&gt;
 &lt;li&gt;声明 本教程参考Mizuki官方文档 结合个人经验总结的教程&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;一、环境准备&lt;/h2&gt;
@@ -110,7 +228,7 @@ navbarTitle: {
 &lt;pre&gt;&lt;code&gt;pnpm build
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;生成的 &lt;code&gt;dist&lt;/code&gt; 目录就可以部署到自己的服务器上啦&lt;/p&gt;
-&lt;p&gt;如果需要部署到云服务器或者静态托管教程的话看本站下一篇文章 &lt;a href=&quot;https://yiban.ccwu.cc/posts/mizuki-2/mizuki-2/&quot;&gt;点击&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;如果需要部署到云服务器或者静态托管教程的话看本站下一篇文章 &lt;a href=&quot;/posts/mizuki-2/mizuki-2/&quot;&gt;点击&lt;/a&gt;&lt;/p&gt;
 </content:encoded></item><item><title>稳定好用机场推荐</title><link>https://www.0110330.xyz/posts/vpn26-4/vpn26-4/</link><guid isPermaLink="true">https://www.0110330.xyz/posts/vpn26-4/vpn26-4/</guid><description>这是我这几年经个人测试总结的一份机场清单 全部机场都由我自费购买 部分机场含优惠码</description><pubDate>Sun, 12 Apr 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;稳定机场推荐&lt;/h1&gt;
 &lt;p&gt;这是我这几年玩网络 经个人测试总结的一份机场清单 部分机场含优惠码&lt;/p&gt;
 &lt;h3&gt;常见名词混淆&lt;/h3&gt;
