@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Yiban の blog</title><description>杂鱼~</description><link>https://www.0110330.xyz/</link><language>zh_CN</language><item><title>本博客搭建教程（续）-Git、GitHub 与 Cloudflare Pages</title><link>https://www.0110330.xyz/posts/mizuki-2/mizuki-2/</link><guid isPermaLink="true">https://www.0110330.xyz/posts/mizuki-2/mizuki-2/</guid><description>上一篇把博客在本地跑起来了，这一篇把它推到 GitHub，再用 Cloudflare Pages 上线</description><pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate><content:encoded>&lt;ul&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Yiban の blog</title><description>杂鱼~</description><link>https://www.0110330.xyz/</link><language>zh_CN</language><item><title>本博客搭建教程（续）-Git、GitHub 与 Cloudflare Pages</title><link>https://www.0110330.xyz/posts/mizuki-2/mizuki-2/</link><guid isPermaLink="true">https://www.0110330.xyz/posts/mizuki-2/mizuki-2/</guid><description>上一篇把博客在本地跑起来了，这一篇讲怎么把 dist 推到 GitHub，再用 Cloudflare Pages 上线，并绑定自己的域名</description><pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate><content:encoded>&lt;ul&gt;
 &lt;li&gt;声明 本教程是上一篇的续章，承接本地构建完成之后的部署部分&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;一、准备工作&lt;/h2&gt;
@@ -116,64 +116,120 @@ git push
 &lt;p&gt;HTTPS 方式不能用账号密码，要用 Personal Access Token；Token 过期了就重新生成一个。&lt;/p&gt;
 &lt;h2&gt;结语&lt;/h2&gt;
 &lt;p&gt;到这里，博客就从本地跑到了公网上。下一篇可以写写内容分离和 Obsidian 写作，或者写写 Cloudflare 的缓存和加速，随缘更新。&lt;/p&gt;
-</content:encoded></item><item><title>本博客搭建教程-Mizuki博客的构建</title><link>https://www.0110330.xyz/posts/mizuki-1/mizuki-1/</link><guid isPermaLink="true">https://www.0110330.xyz/posts/mizuki-1/mizuki-1/</guid><description>从环境准备到本地跑起来的简明步骤</description><pubDate>Tue, 07 Jul 2026 00:00:00 GMT</pubDate><content:encoded>&lt;ul&gt;
-&lt;li&gt;声明 本教程参考 Mizuki 官方文档，记录本博客从零到本地运行的过程&lt;/li&gt;
+</content:encoded></item><item><title>本博客搭建教程-Mizuki博客的构建</title><link>https://www.0110330.xyz/posts/mizuki-1/mizuki-1/</link><guid isPermaLink="true">https://www.0110330.xyz/posts/mizuki-1/mizuki-1/</guid><description>教程参考Mizuki官方文档 结合个人经验总结的教程 也总结一下我个人构建的时候踩的一些坑</description><pubDate>Tue, 07 Jul 2026 00:00:00 GMT</pubDate><content:encoded>&lt;ul&gt;
+&lt;li&gt;声明 本教程参考Mizuki官方文档 结合个人经验总结的教程&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;一、环境准备&lt;/h2&gt;
-&lt;p&gt;需要 Node.js 22 以上版本和 Git，安装地址：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Node.js：&lt;a href=&quot;https://nodejs.org/zh-cn/download&quot;&gt;点击&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Git：&lt;a href=&quot;https://git-scm.com/download/win&quot;&gt;点击&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;装完在终端验证：&lt;/p&gt;
+&lt;h3&gt;1.安装&lt;/h3&gt;
+&lt;p&gt;Windows系统环境：node.js22以上版本 git任意版本&lt;/p&gt;
+&lt;p&gt;node.js安装：&lt;a href=&quot;https://nodejs.org/zh-cn/download&quot;&gt;点击&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;git安装：&lt;a href=&quot;https://git-scm.com/download/win&quot;&gt;点击&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;2.验证&lt;/h3&gt;
+&lt;p&gt;安装完成后打开终端或命令提示符验证安装&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;node -v
 npm -v
 git --version
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;如果提示找不到 pnpm，先安装：&lt;/p&gt;
+&lt;p&gt;如果显示版本号，则表示安装成功&lt;/p&gt;
+&lt;h3&gt;3.安装pnpm&lt;/h3&gt;
+&lt;p&gt;接下来安装pnpm包管理器，可以使用npm安装&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;npm install -g pnpm
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;再验证一次：&lt;/p&gt;
+&lt;p&gt;安装完成后，打开终端或命令提示符，运行以下命令验证 pnpm 是否安装成功&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;pnpm -v
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2&gt;二、拉取项目&lt;/h2&gt;
+&lt;p&gt;如果显示版本号，则表示安装成功&lt;/p&gt;
+&lt;h2&gt;二、部署项目&lt;/h2&gt;
+&lt;h3&gt;1.拉取项目&lt;/h3&gt;
+&lt;p&gt;打开git软件，将Mizuki 项目拉取到本地&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;git clone https://github.com/LyraVoid/Mizuki.git
-cd Mizuki
-pnpm install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;2.安装依赖&lt;/h3&gt;
+&lt;p&gt;进入Mizuki项目目录下使用 pnpm 安装项目依赖&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pnpm install
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2&gt;三、配置博客&lt;/h2&gt;
-&lt;p&gt;主要改 &lt;code&gt;src/config.ts&lt;/code&gt;：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;const SITE_LANG = &quot;zh_CN&quot;; // 语言
-const SITE_TIMEZONE = 8;   // 时区
-
+&lt;h3&gt;1.编辑config.ts文件&lt;/h3&gt;
+&lt;p&gt;Mizuki博客可以通过编辑 &lt;code&gt;src/config.ts&lt;/code&gt; 文件来自定义博客设置&lt;/p&gt;
+&lt;h4&gt;基本界面&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;const SITE_LANG = &quot;ja&quot;; // 语言代码，例如：&apos;en&apos;, &apos;zh_CN&apos;, &apos;ja&apos; 等。
+const SITE_TIMEZONE = 8; //设置你的网站时区 from -12 to 12 default in UTC+8
 export const siteConfig: SiteConfig = {
-    title: &quot;Yiban の blog&quot;,
-    subtitle: &quot;杂鱼~&quot;,
-    siteURL: &quot;https://www.0110330.xyz/&quot;, // 必须以斜杠结尾
-    siteStartDate: &quot;2026-03-29&quot;,
+    title: &quot;Mizuki&quot;,
+    subtitle: &quot;One demo website&quot;,
+    siteURL: &quot;https://mizuki.mysqil.com/&quot;, // 请替换为你的站点URL，以斜杠结尾
+    siteStartDate: &quot;2025-01-01&quot;, // 站点开始运行日期，用于站点统计组件计算运行天数
+    timeZone: SITE_TIMEZONE,
+
+    lang: SITE_LANG,
+
     themeColor: {
-        hue: 345, // 主题色相 0-360
-        fixed: true, // 隐藏主题色选择器
+       hue: 60, // 主题色的默认色相，范围从 0 到 360。例如：红色：0，青色：200，蓝绿色：250，粉色：345
+       fixed: false, // 对访问者隐藏主题色选择器
     },
-};
 &lt;/code&gt;&lt;/pre&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;siteURL&lt;/code&gt; 必须以自己的域名加斜杠结尾&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;siteStartDate&lt;/code&gt; 用来计算站点运行天数&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;hue&lt;/code&gt; 是主题色相，&lt;code&gt;fixed&lt;/code&gt; 为 &lt;code&gt;true&lt;/code&gt; 时访客不能改&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;siteStartDate&lt;/code&gt;：站点开始运行日期，格式为 &lt;code&gt;YYYY-MM-DD&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;siteURL&lt;/code&gt;：你的网站 URL，必须以斜杠结尾，例如 &lt;code&gt;https://example.com/&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;title&lt;/code&gt;：网站的主标题，显示在浏览器标签页和页面头部&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;subtitle&lt;/code&gt;：网站的副标题，通常显示在主页横幅下方&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;lang&lt;/code&gt;：网站的默认语言，影响日期格式、翻译等功能&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;timeZone&lt;/code&gt;：网站的时区设置，影响日期显示和时间计算&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;hue&lt;/code&gt;：主题色的色相值，可以是 0-360 之间的任何数值&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;fixed&lt;/code&gt;：设置为 &lt;code&gt;true&lt;/code&gt; 时，访客将无法更改主题色&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;顶栏图标和 Logo 在 &lt;code&gt;navbarTitle&lt;/code&gt; 里，&lt;code&gt;mode&lt;/code&gt; 选 &lt;code&gt;&quot;text-icon&quot;&lt;/code&gt; 或 &lt;code&gt;&quot;logo&quot;&lt;/code&gt;，图片放 &lt;code&gt;public/assets/home/&lt;/code&gt;。&lt;/p&gt;
-&lt;p&gt;更多配置项看 &lt;a href=&quot;https://docs.mizuki.mysqil.com/Basic-Layout/site-config/&quot;&gt;Mizuki 官方文档&lt;/a&gt;。&lt;/p&gt;
-&lt;h2&gt;四、本地运行&lt;/h2&gt;
+&lt;h4&gt;标题配置&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;// 顶栏标题配置
+navbarTitle: {
+    // 显示模式：&quot;text-icon&quot; 显示图标+文本，&quot;logo&quot; 仅显示Logo
+    mode: &quot;logo&quot;,
+    // 顶栏标题文本
+    text: &quot;MizukiUI&quot;,
+    // 顶栏标题图标路径，默认使用 public/assets/home/home.png
+    icon: &quot;assets/home/home.png&quot;,
+    // 网站Logo图片路径
+    logo: &quot;assets/home/default-logo.png&quot;,
+},
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;mode&lt;/code&gt;：显示模式，&lt;code&gt;&quot;text-icon&quot;&lt;/code&gt; 显示图标+文本，&lt;code&gt;&quot;logo&quot;&lt;/code&gt; 仅显示Logo&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;text&lt;/code&gt;：顶栏标题文本&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;icon&lt;/code&gt;：顶栏标题图标路径，默认使用 &lt;code&gt;public/assets/home/home.png&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;图标建议尺寸：32x32 像素，格式为 PNG 或 WebP&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;logo&lt;/code&gt;：网站Logo图片路径&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;其他更多设置项见&lt;a href=&quot;https://docs.mizuki.mysqil.com/Basic-Layout/site-config/&quot;&gt;Mizuki官方教程&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;2.本地启动&lt;/h3&gt;
+&lt;p&gt;运行以下命令启动开发服务器&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;pnpm dev
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;浏览器打开 &lt;code&gt;http://localhost:4321&lt;/code&gt; 就能看到效果，改代码会自动刷新。&lt;/p&gt;
-&lt;h2&gt;五、打包&lt;/h2&gt;
+&lt;p&gt;启动成功后，您可以在浏览器中访问 &lt;code&gt;http://localhost:4321&lt;/code&gt; 查看您的博客本地预览&lt;/p&gt;
+&lt;h3&gt;3.打包&lt;/h3&gt;
+&lt;p&gt;运行以下命令打包成静态文件，生成到 &lt;code&gt;dist&lt;/code&gt; 目录中&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;pnpm build
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;构建产物在 &lt;code&gt;dist&lt;/code&gt; 目录，下一步就是把它放到公网上：&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;/posts/mizuki-2/mizuki-2/&quot;&gt;下一篇文章：Git、GitHub 与 Cloudflare Pages&lt;/a&gt;&lt;/p&gt;
-</content:encoded></item><item><title>稳定好用机场推荐</title><link>https://www.0110330.xyz/posts/vpn26-4/vpn26-4/</link><guid isPermaLink="true">https://www.0110330.xyz/posts/vpn26-4/vpn26-4/</guid><description>个人自费测试的机场清单，部分含优惠码</description><pubDate>Sun, 12 Apr 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;稳定机场推荐&lt;/h1&gt;
+&lt;p&gt;生成的 &lt;code&gt;dist&lt;/code&gt; 目录就可以部署到自己的服务器上啦&lt;/p&gt;
+&lt;p&gt;如果需要部署到云服务器或者静态托管教程的话看本站下一篇文章 &lt;a href=&quot;/posts/mizuki-2/mizuki-2/&quot;&gt;点击&lt;/a&gt;&lt;/p&gt;
+</content:encoded></item><item><title>稳定好用机场推荐</title><link>https://www.0110330.xyz/posts/vpn26-4/vpn26-4/</link><guid isPermaLink="true">https://www.0110330.xyz/posts/vpn26-4/vpn26-4/</guid><description>这是我这几年经个人测试总结的一份机场清单 全部机场都由我自费购买 部分机场含优惠码</description><pubDate>Sun, 12 Apr 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;稳定机场推荐&lt;/h1&gt;
 &lt;p&gt;这是我这几年玩网络 经个人测试总结的一份机场清单 部分机场含优惠码&lt;/p&gt;
 &lt;h3&gt;常见名词混淆&lt;/h3&gt;
 &lt;ul&gt;

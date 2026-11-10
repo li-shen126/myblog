@@ -5,7 +5,7 @@
   <link href="https://www.0110330.xyz/" rel="alternate" type="text/html"/>
   <link href="https://www.0110330.xyz/atom.xml" rel="self" type="application/atom+xml"/>
   <id>https://www.0110330.xyz/</id>
-  <updated>2026-11-10T14:43:27.165Z</updated>
+  <updated>2026-11-10T14:51:50.908Z</updated>
   <language>zh_CN</language>
   <entry>
     <title>本博客搭建教程（续）-Git、GitHub 与 Cloudflare Pages</title>
@@ -13,7 +13,7 @@
     <id>https://www.0110330.xyz/posts/mizuki-2/mizuki-2/</id>
     <published>2026-11-10T00:00:00.000Z</published>
     <updated>2026-11-10T00:00:00.000Z</updated>
-    <summary>上一篇把博客在本地跑起来了，这一篇把它推到 GitHub，再用 Cloudflare Pages 上线</summary>
+    <summary>上一篇把博客在本地跑起来了，这一篇讲怎么把 dist 推到 GitHub，再用 Cloudflare Pages 上线，并绑定自己的域名</summary>
     <content type="html"><![CDATA[<ul>
 <li>声明 本教程是上一篇的续章，承接本地构建完成之后的部署部分</li>
 </ul>
@@ -144,64 +144,120 @@ git push
     <id>https://www.0110330.xyz/posts/mizuki-1/mizuki-1/</id>
     <published>2026-07-07T00:00:00.000Z</published>
     <updated>2026-07-07T00:00:00.000Z</updated>
-    <summary>从环境准备到本地跑起来的简明步骤</summary>
+    <summary>教程参考Mizuki官方文档 结合个人经验总结的教程 也总结一下我个人构建的时候踩的一些坑</summary>
     <content type="html"><![CDATA[<ul>
-<li>声明 本教程参考 Mizuki 官方文档，记录本博客从零到本地运行的过程</li>
+<li>声明 本教程参考Mizuki官方文档 结合个人经验总结的教程</li>
 </ul>
 <h2>一、环境准备</h2>
-<p>需要 Node.js 22 以上版本和 Git，安装地址：</p>
-<ul>
-<li>Node.js：<a href="https://nodejs.org/zh-cn/download">点击</a></li>
-<li>Git：<a href="https://git-scm.com/download/win">点击</a></li>
-</ul>
-<p>装完在终端验证：</p>
+<h3>1.安装</h3>
+<p>Windows系统环境：node.js22以上版本 git任意版本</p>
+<p>node.js安装：<a href="https://nodejs.org/zh-cn/download">点击</a></p>
+<p>git安装：<a href="https://git-scm.com/download/win">点击</a></p>
+<h3>2.验证</h3>
+<p>安装完成后打开终端或命令提示符验证安装</p>
 <pre><code>node -v
 npm -v
 git --version
 </code></pre>
-<p>如果提示找不到 pnpm，先安装：</p>
+<p>如果显示版本号，则表示安装成功</p>
+<h3>3.安装pnpm</h3>
+<p>接下来安装pnpm包管理器，可以使用npm安装</p>
 <pre><code>npm install -g pnpm
 </code></pre>
-<p>再验证一次：</p>
+<p>安装完成后，打开终端或命令提示符，运行以下命令验证 pnpm 是否安装成功</p>
 <pre><code>pnpm -v
 </code></pre>
-<h2>二、拉取项目</h2>
+<p>如果显示版本号，则表示安装成功</p>
+<h2>二、部署项目</h2>
+<h3>1.拉取项目</h3>
+<p>打开git软件，将Mizuki 项目拉取到本地</p>
 <pre><code>git clone https://github.com/LyraVoid/Mizuki.git
-cd Mizuki
-pnpm install
+</code></pre>
+<h3>2.安装依赖</h3>
+<p>进入Mizuki项目目录下使用 pnpm 安装项目依赖</p>
+<pre><code>pnpm install
 </code></pre>
 <h2>三、配置博客</h2>
-<p>主要改 <code>src/config.ts</code>：</p>
-<pre><code>const SITE_LANG = "zh_CN"; // 语言
-const SITE_TIMEZONE = 8;   // 时区
-
+<h3>1.编辑config.ts文件</h3>
+<p>Mizuki博客可以通过编辑 <code>src/config.ts</code> 文件来自定义博客设置</p>
+<h4>基本界面</h4>
+<pre><code>const SITE_LANG = "ja"; // 语言代码，例如：'en', 'zh_CN', 'ja' 等。
+const SITE_TIMEZONE = 8; //设置你的网站时区 from -12 to 12 default in UTC+8
 export const siteConfig: SiteConfig = {
-    title: "Yiban の blog",
-    subtitle: "杂鱼~",
-    siteURL: "https://www.0110330.xyz/", // 必须以斜杠结尾
-    siteStartDate: "2026-03-29",
+    title: "Mizuki",
+    subtitle: "One demo website",
+    siteURL: "https://mizuki.mysqil.com/", // 请替换为你的站点URL，以斜杠结尾
+    siteStartDate: "2025-01-01", // 站点开始运行日期，用于站点统计组件计算运行天数
+    timeZone: SITE_TIMEZONE,
+
+    lang: SITE_LANG,
+
     themeColor: {
-        hue: 345, // 主题色相 0-360
-        fixed: true, // 隐藏主题色选择器
+       hue: 60, // 主题色的默认色相，范围从 0 到 360。例如：红色：0，青色：200，蓝绿色：250，粉色：345
+       fixed: false, // 对访问者隐藏主题色选择器
     },
-};
 </code></pre>
 <ul>
-<li><code>siteURL</code> 必须以自己的域名加斜杠结尾</li>
-<li><code>siteStartDate</code> 用来计算站点运行天数</li>
-<li><code>hue</code> 是主题色相，<code>fixed</code> 为 <code>true</code> 时访客不能改</li>
+<li>
+<p><code>siteStartDate</code>：站点开始运行日期，格式为 <code>YYYY-MM-DD</code></p>
+</li>
+<li>
+<p><code>siteURL</code>：你的网站 URL，必须以斜杠结尾，例如 <code>https://example.com/</code></p>
+</li>
+<li>
+<p><code>title</code>：网站的主标题，显示在浏览器标签页和页面头部</p>
+</li>
+<li>
+<p><code>subtitle</code>：网站的副标题，通常显示在主页横幅下方</p>
+</li>
+<li>
+<p><code>lang</code>：网站的默认语言，影响日期格式、翻译等功能</p>
+</li>
+<li>
+<p><code>timeZone</code>：网站的时区设置，影响日期显示和时间计算</p>
+</li>
+<li>
+<p><code>hue</code>：主题色的色相值，可以是 0-360 之间的任何数值</p>
+</li>
+<li>
+<p><code>fixed</code>：设置为 <code>true</code> 时，访客将无法更改主题色</p>
+</li>
 </ul>
-<p>顶栏图标和 Logo 在 <code>navbarTitle</code> 里，<code>mode</code> 选 <code>"text-icon"</code> 或 <code>"logo"</code>，图片放 <code>public/assets/home/</code>。</p>
-<p>更多配置项看 <a href="https://docs.mizuki.mysqil.com/Basic-Layout/site-config/">Mizuki 官方文档</a>。</p>
-<h2>四、本地运行</h2>
+<h4>标题配置</h4>
+<pre><code>// 顶栏标题配置
+navbarTitle: {
+    // 显示模式："text-icon" 显示图标+文本，"logo" 仅显示Logo
+    mode: "logo",
+    // 顶栏标题文本
+    text: "MizukiUI",
+    // 顶栏标题图标路径，默认使用 public/assets/home/home.png
+    icon: "assets/home/home.png",
+    // 网站Logo图片路径
+    logo: "assets/home/default-logo.png",
+},
+</code></pre>
+<ul>
+<li><code>mode</code>：显示模式，<code>"text-icon"</code> 显示图标+文本，<code>"logo"</code> 仅显示Logo</li>
+<li><code>text</code>：顶栏标题文本</li>
+<li><code>icon</code>：顶栏标题图标路径，默认使用 <code>public/assets/home/home.png</code>
+<ul>
+<li>图标建议尺寸：32x32 像素，格式为 PNG 或 WebP</li>
+</ul>
+</li>
+<li><code>logo</code>：网站Logo图片路径</li>
+</ul>
+<p>其他更多设置项见<a href="https://docs.mizuki.mysqil.com/Basic-Layout/site-config/">Mizuki官方教程</a></p>
+<h3>2.本地启动</h3>
+<p>运行以下命令启动开发服务器</p>
 <pre><code>pnpm dev
 </code></pre>
-<p>浏览器打开 <code>http://localhost:4321</code> 就能看到效果，改代码会自动刷新。</p>
-<h2>五、打包</h2>
+<p>启动成功后，您可以在浏览器中访问 <code>http://localhost:4321</code> 查看您的博客本地预览</p>
+<h3>3.打包</h3>
+<p>运行以下命令打包成静态文件，生成到 <code>dist</code> 目录中</p>
 <pre><code>pnpm build
 </code></pre>
-<p>构建产物在 <code>dist</code> 目录，下一步就是把它放到公网上：</p>
-<p><a href="/posts/mizuki-2/mizuki-2/">下一篇文章：Git、GitHub 与 Cloudflare Pages</a></p>
+<p>生成的 <code>dist</code> 目录就可以部署到自己的服务器上啦</p>
+<p>如果需要部署到云服务器或者静态托管教程的话看本站下一篇文章 <a href="/posts/mizuki-2/mizuki-2/">点击</a></p>
 ]]></content>
     <author>
       <name>Yiban</name>
@@ -214,7 +270,7 @@ export const siteConfig: SiteConfig = {
     <id>https://www.0110330.xyz/posts/vpn26-4/vpn26-4/</id>
     <published>2026-04-12T00:00:00.000Z</published>
     <updated>2026-04-12T00:00:00.000Z</updated>
-    <summary>个人自费测试的机场清单，部分含优惠码</summary>
+    <summary>这是我这几年经个人测试总结的一份机场清单 全部机场都由我自费购买 部分机场含优惠码</summary>
     <content type="html"><![CDATA[<h1>稳定机场推荐</h1>
 <p>这是我这几年玩网络 经个人测试总结的一份机场清单 部分机场含优惠码</p>
 <h3>常见名词混淆</h3>
